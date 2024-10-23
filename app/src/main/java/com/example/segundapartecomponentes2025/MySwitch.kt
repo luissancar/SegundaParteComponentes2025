@@ -13,7 +13,8 @@ import androidx.compose.ui.graphics.Color
 @Composable
 fun MySwitch() {
     var state by rememberSaveable { mutableStateOf(true) }
-    Switch(checked = state, onCheckedChange = { state = it }, enabled = true,  colors = SwitchDefaults.colors(
+    Switch(checked = state, onCheckedChange = { state = it },
+        enabled = true,  colors = SwitchDefaults.colors(
         checkedThumbColor = Color.Green,   // Color del "thumb" cuando está activado
         checkedTrackColor = Color.LightGray,  // Color del "track" cuando está activado
         uncheckedThumbColor = Color.Red,   // Color del "thumb" cuando está desactivado

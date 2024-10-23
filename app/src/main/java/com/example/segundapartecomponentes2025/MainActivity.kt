@@ -39,7 +39,10 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         //MySwitch()
         //MyCheckBox()
         //MyCheckBoxMain()
-        MyCheckBoxMain2()
+     //   MyCheckBoxMain2()
+       //MyTriStatusChecbox()
+       // MyRadioButton()
+        MyRadioButtonMain()
 
     }
 }

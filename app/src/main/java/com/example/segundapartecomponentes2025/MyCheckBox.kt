@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TriStateCheckbox
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -13,6 +14,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.state.ToggleableState
 import kotlinx.coroutines.selects.select
 
 @Composable
@@ -103,7 +105,7 @@ fun MyCheckBoxMain() {
 
 @Composable
 fun MyCheckBoxMain2() {
-    val opciones = GetOptions(listOf("Uno", "Dos", "Tres","cuatro"))
+    val opciones = GetOptions(listOf("Uno", "Dos", "Tres", "cuatro"))
     Column {
         opciones.forEach {
             MyCheckBoxStateF(it)
@@ -131,9 +133,17 @@ fun GetOptions(titulos: List<String>): List<CheckInfo> {
 }
 
 
-
-
-
+@Composable
+fun MyTriStatusChecbox() {
+    var status by rememberSaveable { mutableStateOf(ToggleableState.Off) }
+    TriStateCheckbox(state = status, onClick = {
+        status = when (status) {
+            ToggleableState.On -> ToggleableState.Off
+            ToggleableState.Off -> ToggleableState.Indeterminate
+            ToggleableState.Indeterminate -> ToggleableState.On
+        }
+    })
+}
 
 
 
